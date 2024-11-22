@@ -12,19 +12,22 @@
 					<div class="card">
 						<div class="card-header text-center">
 								<h3>Register Page</h3>
-								<c:if test="${not empty msg}">
-									<p class="fs-5 fw-bold text-success">${msg}</p>
-								</c:if>
+								<th:block th:if="${session.msg}">
+									<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
+									<!-- <th:block th:text="${userServiceImpl.removeSessionMessage()}"></th:block> -->
+									<!-- <th:block th:text="${sessionMessage}"> -->
+								</th:block> 
+								
 								
 						</div>
 						<div class="card-body">
-							<form action="#" method="post">
+							<form action="saveUser" method="post">
 								<div class="mb-3">
 									<label>Enter your Name</label>
-									<input type="text" name="fullname" class="form-control"/>
+									<input type="text" name="name" class="form-control"/>
  								</div>
  								<div class="mb-3">
-									<label>Enter your Qualification</label>
+									 <label>Enter your Qualification</label>
 									<input type="text" name="qualification" class="form-control"/>
  								</div>
  								<div class="mb-3">
