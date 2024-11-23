@@ -12,7 +12,7 @@
 					<div class="card">
 						<div class="card-header text-center">
 								<h3>Register Page</h3>
-								<th:block th:if="${session.msg}">
+								<th:block th:if="${session.msg}" class="message" id="message">
 									<p class="fs-5 text-center text-success">[[${session.msg}]]</p>
 									<!-- <th:block th:text="${userServiceImpl.removeSessionMessage()}"></th:block> -->
 									<!-- <th:block th:text="${sessionMessage}"> -->
@@ -70,5 +70,21 @@
 		</div>
 	
 	</section>
+	
+	<script>
+	// To hide the popup after 3 seconds
+	setTimeout(function() {
+	    document.getElementById("message").style.display = "none";
+	}, 3000);
+
+	// To remove the popup after 3 seconds
+	setTimeout(function() {
+	    var popup = document.getElementById("message");
+	    if (popup) {
+	        popup.parentNode.removeChild(popup);
+	    }
+	}, 3000);
+
+	</script>
 </body>
 </html>

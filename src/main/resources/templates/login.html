@@ -6,43 +6,37 @@
 </head>
 <body>
 	<section>
-		<div class="container mt-2 mb-5">
+		<div class="container mt-4 mb-5">
 			<div class="row">
 				<div class="col-md-6 offset-md-3">
 					<div class="card">
 						<div class="card-header text-center">
 								<h3>Login Page</h3>
-							<!-- 	<c:if test="${not empty msg}">
-									<p class="fs-5 fw-bold text-success">${msg}</p>
-								</c:if> -->
+							<th:block th:if="${param.logout}">
+								<p class="text-center text-success fs-4">Logout successfully
+							</th:block>
+							<th:block th:if="${param.error}">
+								<p class="text-center text-danger fs-4">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]
+							</th:block>
+							
 								
 						</div>
 						<div class="card-body">
-							<form action="#" method="post">
+							<form action="userLogin" method="post">
 								
  								
  								<div class="mb-3">
 									<label>Enter your Email</label>
-									<input type="email" name="email" class="form-control"/>
+									<input type="email" name="username" class="form-control"/>
  								</div>
- 								<div class="mb-3">
-									<label class="me-3">Gender</label>
-									<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="gender" id="inlineRadiobox1" value="Male">
-									  <label class="form-check-label" for="inlineRadiobox1">Male</label>
-									</div>
-									<div class="form-check form-check-inline">
-									  <input class="form-check-input" type="radio" name="gender" id="inlineRadiobox2" value="Female">
-									  <label class="form-check-label" for="inlineRadiobox2">Female</label>
-									</div>
 									
- 								</div>
+ 								
  								<div class="mb-3">
 									<label>Enter Password</label>
 									<input type="text" name="password" class="form-control"/>
  								</div>
 
- 								<button class="btn btn-primary col-md-12"> Register</button>
+ 								<button class="btn btn-primary col-md-12 mb-2"> Login</button>
  								
 							
 							</form>
